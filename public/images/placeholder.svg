@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#3D1F0A"/>
+  <rect x="0" y="0" width="800" height="600" fill="#C8932A" opacity="0.08"/>
+  <!-- Wood grain lines -->
+  <line x1="0" y1="150" x2="800" y2="150" stroke="#C8932A" stroke-width="1" opacity="0.1"/>
+  <line x1="0" y1="300" x2="800" y2="300" stroke="#C8932A" stroke-width="1" opacity="0.1"/>
+  <line x1="0" y1="450" x2="800" y2="450" stroke="#C8932A" stroke-width="1" opacity="0.1"/>
+  <text x="400" y="310" font-family="serif" font-size="18" fill="#C8932A" opacity="0.4" text-anchor="middle">Photo coming soon</text>
+</svg>

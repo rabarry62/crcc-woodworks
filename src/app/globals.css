@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  Custom brand tokens for CRCC Woodworks.
+  Tailwind v4 reads --color-* variables and auto-generates
+  utility classes like bg-bark, text-gold, border-grain, etc.
+*/
+@theme {
+  /* Brand colors — pulled from the CRCC logo and yard photography */
+  --color-bark:      #3D1F0A; /* deep brown — dark section backgrounds */
+  --color-gold:      #C8932A; /* warm golden tan — CTAs, highlights */
+  --color-forest:    #2D5A1B; /* forest green — used sparingly */
+  --color-parchment: #FAF6EF; /* warm off-white — light section backgrounds */
+  --color-cream:     #F5ECD7; /* off-white — body text on dark backgrounds */
+  --color-ink:       #1A1008; /* near-black brown — text on light backgrounds */
+  --color-wood:      #7A5C3E; /* medium brown — captions, secondary labels */
+  --color-grain:     #D4C4B0; /* warm grey-tan — dividers, input borders */
+
+  /*
+    Font families — CSS variables injected by next/font/google in layout.tsx.
+    Overriding --font-sans makes DM Sans the default body font site-wide.
+  */
+  --font-display: var(--font-rozha);
+  --font-heading: var(--font-playfair);
+  --font-sans:    var(--font-dm-sans);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/*
+  Ken Burns effect — slow scale on hero background image.
+  Feels heavy and deliberate, like the weight of real lumber.
+*/
+@keyframes kenBurns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.animate-ken-burns {
+  animation: kenBurns 10s ease-out forwards;
+}
+
+/* Smooth scrolling for nav anchor links */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FAF6EF;
+  color: #1A1008;
 }
