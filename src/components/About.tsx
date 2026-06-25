@@ -63,12 +63,12 @@ export default function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="relative aspect-[4/3] rounded-sm overflow-hidden bg-bark/10 ring-1 ring-grain"
+          className="rounded-sm overflow-hidden ring-1 ring-grain"
         >
           <img
             src="/images/customsign.jpg"
             alt="CRCC Woodworks yard and sign"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="w-full h-auto block"
             loading="lazy"
           />
         </motion.div>

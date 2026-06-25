@@ -42,23 +42,13 @@ export default function Footer() {
           ))}
         </nav>
 
-        {/* Phone + Instagram */}
-        <div className="flex flex-col items-center sm:items-end gap-2">
-          <a
-            href="tel:2508785987"
-            className="font-sans text-gold font-semibold text-sm hover:text-gold/80 transition-colors"
-          >
-            (250) 878-5987
-          </a>
-          <a
-            href="https://instagram.com/richardbarry1820"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-sans text-cream/60 text-sm hover:text-gold transition-colors"
-          >
-            @richardbarry1820
-          </a>
-        </div>
+        {/* Phone */}
+        <a
+          href="tel:2508785987"
+          className="font-sans text-gold font-semibold text-sm hover:text-gold/80 transition-colors"
+        >
+          (250) 878-5987
+        </a>
 
       </div>
 

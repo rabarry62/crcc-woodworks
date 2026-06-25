@@ -46,7 +46,7 @@ export default function Hero() {
       <div
         aria-hidden
         className="absolute inset-0 bg-cover bg-center animate-ken-burns"
-        style={{ backgroundImage: "url('/images/hero.webp')" }}
+        style={{ backgroundImage: "url('/images/crcc image 1.webp')" }}
       />
 
       {/* Semi-transparent dark overlay so text stays readable over any photo */}
@@ -107,14 +107,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Subtle scroll hint at the bottom — purely decorative */}
-      <div
-        aria-hidden
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50"
-      >
-        <span className="font-sans text-cream text-xs uppercase tracking-widest">Scroll</span>
-        <div className="w-px h-8 bg-cream/40" />
-      </div>
+
     </section>
   );
 }
