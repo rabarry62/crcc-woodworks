@@ -3,21 +3,20 @@
 /*
   Gallery section — 6-image grid, 3 columns on desktop, 2 on tablet, 1 on mobile.
   Images stagger in with a subtle scale effect as they enter the viewport.
-
-  To add real photos: place them in public/images/ and update the src paths below.
-  Filenames: gallery-1.jpg through gallery-6.jpg
 */
 
 import { motion, useReducedMotion } from "framer-motion";
 
-/* Placeholder items — replace src and alt when the client delivers photos */
 const PHOTOS = [
-  { src: "/images/gallery-1.jpg", alt: "Coastal Douglas Fir timber stack in the yard" },
-  { src: "/images/gallery-2.jpg", alt: "Custom woodworking piece from the shop" },
-  { src: "/images/gallery-3.jpg", alt: "Lumber yard overview with stacked beams" },
-  { src: "/images/gallery-4.jpg", alt: "Handcrafted furniture detail" },
-  { src: "/images/gallery-5.jpg", alt: "Beams and posts ready for pickup" },
-  { src: "/images/gallery-6.jpg", alt: "Custom handcrafted sign" },
+  { src: "/images/IMG_20260628_083538.webp", alt: "Finished dark-stained garden bridge ready for delivery" },
+  { src: "/images/IMG_20260628_083515.webp", alt: "Custom outdoor lounge chairs and coffee table with CRCC Woodworks sign" },
+  { src: "/images/IMG_20260628_083527.webp", alt: "Horizontal cedar fence with black metal posts" },
+  { src: "/images/IMG_20260628_083530.webp", alt: "Fresh lumber loaded on trailer in the yard" },
+  { src: "/images/IMG_20260628_083551.webp", alt: "Custom carved Welcome To Our Lake House decorative sign" },
+  { src: "/images/IMG_20260628_083605.webp", alt: "Cedar gate with Z-brace design and black hardware" },
+  { src: "/images/IMG_20260628_083559.webp", alt: "Finished stained Kelowna Motorcycle Shop custom sign" },
+  { src: "/images/IMG_20260628_083536.webp", alt: "Small garden bridge with CRCC Woodworks sign" },
+  { src: "/images/lumber2.webp", alt: "Fresh Coastal Douglas Fir lumber stacked and ready" },
 ];
 
 export default function Gallery() {
@@ -50,7 +49,7 @@ export default function Gallery() {
           Image grid — warm placeholder background shows until real
           photos are added. Each item has a hover zoom on the image.
         */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
           {PHOTOS.map((photo, i) => (
             <motion.div
               key={photo.src}
@@ -63,12 +62,12 @@ export default function Gallery() {
                 ease: "easeOut" as const,
               }}
               viewport={{ once: true, margin: "-60px" }}
-              className="relative aspect-[4/3] overflow-hidden rounded-sm bg-bark/10 ring-1 ring-grain"
+              className="break-inside-avoid mb-4 overflow-hidden rounded-sm bg-bark/10 ring-1 ring-grain"
             >
               <img
                 src={photo.src}
                 alt={photo.alt}
-                className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                className="w-full h-auto block hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
             </motion.div>

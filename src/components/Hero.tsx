@@ -46,7 +46,7 @@ export default function Hero() {
       <div
         aria-hidden
         className="absolute inset-0 bg-cover bg-center animate-ken-burns"
-        style={{ backgroundImage: "url('/images/crcc image 1.webp')" }}
+        style={{ backgroundImage: "url('/images/IMG_20260628_083519.webp')" }}
       />
 
       {/* Semi-transparent dark overlay so text stays readable over any photo */}
