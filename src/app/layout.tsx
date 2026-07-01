@@ -36,6 +36,14 @@ export const metadata: Metadata = {
   title: "CRCC Woodworks — West Kelowna Lumber & Custom Woodworking",
   description:
     "Quality Coastal Douglas Fir lumber, custom woodworking, and one-of-a-kind pieces — proudly serving the Okanagan Valley.",
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+    other: { rel: "manifest", url: "/site.webmanifest" },
+  },
 };
 
 export default function RootLayout({

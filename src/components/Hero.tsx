@@ -76,7 +76,7 @@ export default function Hero() {
           animate="visible"
           className="mt-5 font-sans text-cream/85 text-lg sm:text-xl max-w-xl leading-relaxed"
         >
-          Quality Coastal Douglas Fir lumber, custom woodworking, and
+          Quality Coastal Douglas Fir lumber, custom woodworking and
           one-of-a-kind pieces — proudly serving the Okanagan Valley.
         </motion.p>
 

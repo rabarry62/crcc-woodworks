@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         /* Update the `from` domain once crccwoodworks.ca is verified in Resend */
-        from: "CRCC Woodworks <onboarding@resend.dev>",
+        from: "CRCC Woodworks <noreply@crccwoodworks.ca>",
         to: ["rabarry62@icloud.com"],
         subject: `New enquiry from ${name}`,
         text: [
