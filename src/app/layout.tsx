@@ -44,6 +44,10 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
     other: { rel: "manifest", url: "/site.webmanifest" },
   },
+  // Google Search Console site ownership verification
+  verification: {
+    google: "HNYtEUABWmjmd4wg1jMSEZ4Ov8wj0rk4tgZRcPvOrbs",
+  },
 };
 
 export default function RootLayout({
