@@ -32,6 +32,50 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
+/*
+  LocalBusiness structured data (JSON-LD) — helps Google understand this is
+  a local lumber yard so it can surface the site for searches like
+  "lumber sales west kelowna".
+*/
+const businessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  additionalType: "https://schema.org/LumberYard",
+  name: "CRCC Woodworks",
+  image: "https://crccwoodworks.ca/images/customsign.jpg",
+  url: "https://crccwoodworks.ca",
+  telephone: "+1-250-878-5987",
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "1501 Stevens Rd",
+    addressLocality: "West Kelowna",
+    addressRegion: "BC",
+    postalCode: "V1Z 1G2",
+    addressCountry: "CA",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "49.86619",
+    longitude: "-119.57692",
+  },
+  areaServed: {
+    "@type": "City",
+    name: "West Kelowna",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "15:00",
+    },
+  ],
+  sameAs: [
+    "https://maps.app.goo.gl/H3Viu2bEarijKabYA",
+  ],
+};
+
 export const metadata: Metadata = {
   title: "CRCC Woodworks — West Kelowna Lumber & Custom Woodworking",
   description:
@@ -64,7 +108,20 @@ export default function RootLayout({
       lang="en"
       className={`${rozhaOne.variable} ${playfairDisplay.variable} ${dmSans.variable}`}
     >
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {/*
+          JSON-LD doesn't need to live in <head> — search engines read it
+          anywhere in the document. Escaping "<" prevents anyone from
+          breaking out of the script tag via the business name/address.
+        */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(businessJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

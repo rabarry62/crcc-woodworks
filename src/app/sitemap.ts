@@ -2,7 +2,8 @@ import type { MetadataRoute } from "next";
 
 /*
   Generates /sitemap.xml at build time.
-  This is a one-page site, so the sitemap just lists the homepage.
+  Homepage is the primary page; privacy-policy is a secondary,
+  lower-priority page that still needs to be indexable.
 */
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -11,6 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
+    },
+    {
+      url: "https://crccwoodworks.ca/privacy-policy",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
   ];
 }

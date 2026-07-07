@@ -45,6 +45,13 @@ export default function Contact() {
   /* Tracks each form field value */
   const [form, setForm] = useState({ name: "", contact: "", message: "" });
 
+  /*
+    Honeypot field — real users never see or fill this in (it's positioned
+    off-screen), but bots that auto-fill every input on the page will.
+    If it comes back non-empty, the server treats the submission as spam.
+  */
+  const [honeypot, setHoneypot] = useState("");
+
   /* Tracks the form submission state: idle → sending → sent (or error) */
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
@@ -61,7 +68,7 @@ export default function Contact() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, company: honeypot }),
       });
       if (res.ok) {
         setStatus("sent");
@@ -172,6 +179,28 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                  {/*
+                    Honeypot field — invisible to real users (off-screen,
+                    not display:none since some bots skip that specifically),
+                    but bots that auto-fill forms will fill it in.
+                  */}
+                  <input
+                    type="text"
+                    name="company"
+                    autoComplete="off"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    style={{
+                      position: "absolute",
+                      left: "-9999px",
+                      width: "1px",
+                      height: "1px",
+                      opacity: 0,
+                    }}
+                  />
+
                   <div>
                     <label htmlFor="name" className="sr-only">Your name</label>
                     <input

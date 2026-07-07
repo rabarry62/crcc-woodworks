@@ -10,7 +10,17 @@ import { NextRequest, NextResponse } from "next/server";
 */
 export async function POST(req: NextRequest) {
   try {
-    const { name, contact, message } = await req.json();
+    const { name, contact, message, company } = await req.json();
+
+    /*
+      Honeypot check — "company" is a hidden field real users never fill in.
+      If it has a value, the submission came from a bot. Return a fake
+      success so the bot doesn't learn its submission was rejected, but
+      skip sending the email.
+    */
+    if (company) {
+      return NextResponse.json({ ok: true });
+    }
 
     /* Basic server-side validation — name and contact are required */
     if (!name?.trim() || !contact?.trim()) {
